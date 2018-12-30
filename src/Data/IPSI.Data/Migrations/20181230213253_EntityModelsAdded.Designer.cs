@@ -4,14 +4,16 @@ using IPSI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IPSI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181230213253_EntityModelsAdded")]
+    partial class EntityModelsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -196,7 +198,7 @@ namespace IPSI.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("IPSI.Data.Models.Insurance", b =>
@@ -256,7 +258,7 @@ namespace IPSI.Data.Migrations
 
                     b.HasIndex("InsuranceId");
 
-                    b.ToTable("InsurancePolicies");
+                    b.ToTable("InsurancePolicy");
                 });
 
             modelBuilder.Entity("IPSI.Data.Models.InsuredProperty", b =>
@@ -280,7 +282,7 @@ namespace IPSI.Data.Migrations
 
                     b.HasIndex("InsurancePolicyId");
 
-                    b.ToTable("InsuredProperties");
+                    b.ToTable("InsuredProperty");
                 });
 
             modelBuilder.Entity("IPSI.Data.Models.Payment", b =>
@@ -313,7 +315,7 @@ namespace IPSI.Data.Migrations
 
                     b.HasIndex("InsurancePolicyId");
 
-                    b.ToTable("Payments");
+                    b.ToTable("Payment");
                 });
 
             modelBuilder.Entity("IPSI.Data.Models.Setting", b =>

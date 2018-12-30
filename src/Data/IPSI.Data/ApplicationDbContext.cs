@@ -26,6 +26,20 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<Company> Companies { get; set; }
+
+        public DbSet<Insurance> Insurances { get; set; }
+
+        public DbSet<CompanyInsurance> CompanyInsurances { get; set; }
+
+        public DbSet<InsurancePolicy> InsurancePolicies { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<InsuredProperty> InsuredProperties { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
