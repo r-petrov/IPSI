@@ -1,8 +1,9 @@
-﻿using IPSI.Data.Common.Models;
-using System.ComponentModel.DataAnnotations;
-
-namespace IPSI.Data.Models
+﻿namespace IPSI.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using IPSI.Data.Common.Models;
+
     public class InsuredProperty : BaseModel<int>
     {
         [Required]

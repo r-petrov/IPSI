@@ -8,7 +8,7 @@
     using IPSI.Data.Models;
     using IPSI.Data.Repositories;
     using IPSI.Data.Seeding;
-    using IPSI.Services.Data;
+    using IPSI.Services.Data.Contracts;
     using IPSI.Services.Mapping;
     using IPSI.Services.Messaging;
     using IPSI.Web.Filters;

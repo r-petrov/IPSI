@@ -1,7 +1,7 @@
-﻿using IPSI.Data.Common.Models;
-
-namespace IPSI.Data.Models
+﻿namespace IPSI.Data.Models
 {
+    using IPSI.Data.Common.Models;
+
     public class CompanyInsurance : BaseModel<int>
     {
         public int CompanyId { get; set; }

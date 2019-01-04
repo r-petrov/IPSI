@@ -1,9 +1,10 @@
-﻿using IPSI.Data.Common.Attributes;
-using IPSI.Data.Common.Models;
-using System;
-
-namespace IPSI.Data.Models
+﻿namespace IPSI.Data.Models
 {
+    using System;
+
+    using IPSI.Data.Common.Attributes;
+    using IPSI.Data.Common.Models;
+
     public class Payment : BaseModel<int>
     {
         [MinValue(1)]

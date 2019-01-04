@@ -4,6 +4,7 @@
 
     using IPSI.Data.Common.Repositories;
     using IPSI.Data.Models;
+    using IPSI.Services.Data.Contracts;
 
     public class SettingsService : ISettingsService
     {
