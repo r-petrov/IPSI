@@ -1,11 +1,11 @@
 ﻿namespace IPSI.Services.Models.InputModels.Company
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
 
-    public class CreateCompanyInputModel
+    using IPSI.Data.Models;
+    using IPSI.Services.Mapping;
+
+    public class CreateCompanyInputModel : IMapTo<Company>
     {
         [Required]
         public string Name { get; set; }

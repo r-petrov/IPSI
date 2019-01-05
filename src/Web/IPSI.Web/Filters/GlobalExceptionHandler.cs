@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Newtonsoft.Json;
-using System;
-using System.Net;
-
-namespace IPSI.Web.Filters
+﻿namespace IPSI.Web.Filters
 {
+    using System;
+    using System.Net;
+
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc.Filters;
+    using Newtonsoft.Json;
+
     public class GlobalExceptionHandler : IExceptionFilter
     {
         private readonly IHostingEnvironment environment;

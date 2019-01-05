@@ -12,6 +12,7 @@
     using IPSI.Services.Data.Implementations;
     using IPSI.Services.Mapping;
     using IPSI.Services.Messaging;
+    using IPSI.Services.Models;
     using IPSI.Services.Models.ViewModels.Company;
     using IPSI.Web.Filters;
     using IPSI.Web.ViewModels;
@@ -64,7 +65,7 @@
                 .AddMvc(options =>
                 {
                     options.Filters.Add(typeof(GlobalExceptionHandler));
-                    options.Filters.Add(typeof(ValidateModelAttribute));
+                    //options.Filters.Add(typeof(ValidateModelAttribute));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddRazorPagesOptions(options =>
@@ -114,7 +115,7 @@
         {
             AutoMapperConfig.RegisterMappings(
                 typeof(ErrorViewModel).GetTypeInfo().Assembly,
-                typeof(CompanyViewModel).GetTypeInfo().Assembly);
+                typeof(ServiceModel).GetTypeInfo().Assembly);
 
             // Seed data on application startup
             using (var serviceScope = app.ApplicationServices.CreateScope())

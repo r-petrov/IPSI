@@ -45,9 +45,14 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateCompanyInputModel inputModel)
         {
-            // TODO: Add insert logic here
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
 
-            return this.RedirectToAction(nameof(All));
+            this.companiesService.CreateCompany(inputModel);
+
+            return this.RedirectToAction(nameof(this.All));
         }
 
         // GET: Companies/Edit/5
