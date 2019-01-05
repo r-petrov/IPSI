@@ -1,16 +1,23 @@
 ﻿@using IPSI.Data.Models
+@using IPSI.Common
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManage
+@inject UserManager<ApplicationUser> UserManager
 
 @if (this.SignInManager.IsSignedIn(this.User))
 {
-    <ul class="navbar-nav flex-grow-1">
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+    {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="All">Companies</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </li>
-    </ul>
+    }
+</ul>
 }

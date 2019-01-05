@@ -10,8 +10,9 @@
     using IPSI.Data.Models;
     using IPSI.Data.Repositories;
     using IPSI.Data.Seeding;
-    using IPSI.Services.Data;
     using IPSI.Services.Messaging;
+    using IPSI.Services.Data.Contracts;
+    using IPSI.Services.Data.Implementations;
 
     using CommandLine;
 
@@ -21,7 +22,6 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-    using System.Linq;
 
     public static class Program
     {

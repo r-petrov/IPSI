@@ -2,10 +2,10 @@
 {
     using System.Collections.Generic;
 
-    using IPSI.Data.Models;
+    using IPSI.Services.Models.ViewModels.Company;
 
     public interface ICompaniesService
     {
-        IEnumerable<Company> GetCompanies();
+        CompanyListViewModel GetCompanyList();
     }
 }

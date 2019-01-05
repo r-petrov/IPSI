@@ -1,4 +1,4 @@
-﻿namespace IPSI.Services.Data
+﻿namespace IPSI.Services.Data.Implementations
 {
     using System.Linq;
 

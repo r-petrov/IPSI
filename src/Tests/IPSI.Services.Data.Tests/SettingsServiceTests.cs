@@ -8,7 +8,7 @@
     using IPSI.Data.Common.Repositories;
     using IPSI.Data.Models;
     using IPSI.Data.Repositories;
-
+    using IPSI.Services.Data.Implementations;
     using Microsoft.EntityFrameworkCore;
 
     using Moq;

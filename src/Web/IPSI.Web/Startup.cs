@@ -9,8 +9,10 @@
     using IPSI.Data.Repositories;
     using IPSI.Data.Seeding;
     using IPSI.Services.Data.Contracts;
+    using IPSI.Services.Data.Implementations;
     using IPSI.Services.Mapping;
     using IPSI.Services.Messaging;
+    using IPSI.Services.Models.ViewModels.Company;
     using IPSI.Web.Filters;
     using IPSI.Web.ViewModels;
 
@@ -104,12 +106,15 @@
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISmsSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddScoped<ICompaniesService, CompaniesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
+            AutoMapperConfig.RegisterMappings(
+                typeof(ErrorViewModel).GetTypeInfo().Assembly,
+                typeof(CompanyViewModel).GetTypeInfo().Assembly);
 
             // Seed data on application startup
             using (var serviceScope = app.ApplicationServices.CreateScope())
@@ -142,7 +147,8 @@
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "areaRoute", template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -21,6 +21,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\IPSI.Data.Common\IPSI.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\IPSI.Data.Models\IPSI.Data.Models.csproj" />
+    <ProjectReference Include="..\IPSI.Services.Mapping\IPSI.Services.Mapping.csproj" />
+    <ProjectReference Include="..\IPSI.Services.Models\IPSI.Services.Models.csproj" />
   </ItemGroup>
 
 </Project>
