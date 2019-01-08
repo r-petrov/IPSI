@@ -47,7 +47,8 @@
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? this.Url.Content("~/");
+            // returnUrl = returnUrl ?? this.Url.Content("~/");
+            returnUrl = returnUrl ?? this.Url.Content("~/Home/Dashboard");
             if (this.ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email };

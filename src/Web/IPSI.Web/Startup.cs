@@ -14,7 +14,7 @@
     using IPSI.Services.Messaging;
     using IPSI.Services.Models;
     using IPSI.Services.Models.ViewModels.Company;
-    using IPSI.Web.Filters;
+    //using IPSI.Web.Filters;
     using IPSI.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
@@ -64,8 +64,8 @@
             services
                 .AddMvc(options =>
                 {
-                    options.Filters.Add(typeof(GlobalExceptionHandler));
-                    //options.Filters.Add(typeof(ValidateModelAttribute));
+                    // options.Filters.Add(typeof(GlobalExceptionHandler));
+                    // options.Filters.Add(typeof(ValidateModelAttribute));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddRazorPagesOptions(options =>

@@ -13,6 +13,7 @@
 
         public int InsurancePolicyId { get; set; }
 
+        // TODO make many-to-many relation with InsurancePolicy model
         public virtual InsurancePolicy InsurancePolicy { get; set; }
     }
 }

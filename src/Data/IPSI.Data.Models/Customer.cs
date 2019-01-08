@@ -30,6 +30,7 @@
         [DataType(DataType.PhoneNumber)]
         public string Mobile { get; set; }
 
+        // TODO make Email property non-required
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }

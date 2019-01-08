@@ -26,7 +26,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@IPSIConst</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -35,24 +35,9 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    @if (this.SignInManager.IsSignedIn(this.User))
-                    {
-                        <partial name="_UserActionsPartial" />
-                        if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
-                        {
-                            <partial name="_AdminActionsPartial" />
-                        }
-
-                        <partial name="_GeneralActionsPartial" />
-                    }
-                    @*<ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </li>
-        </ul>*@
+                    <partial name="_UserActionsPartial" />
+                    <partial name="_AdminActionsPartial" />
+                    <partial name="_GeneralActionsPartial" />
                 </div>
             </div>
         </nav>
@@ -67,7 +52,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - @IPSIConst @*- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+            &copy; @DateTime.Now.Year - @IPSIConst
         </div>
     </footer>
 
