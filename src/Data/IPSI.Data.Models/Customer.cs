@@ -11,7 +11,7 @@
 
         public Customer()
         {
-            this.InsurancePolicies = new HashSet<InsurancePolicy>();
+            this.InsurancePolicies = new HashSet<Policy>();
         }
 
         [Required]
@@ -30,8 +30,6 @@
         [DataType(DataType.PhoneNumber)]
         public string Mobile { get; set; }
 
-        // TODO make Email property non-required
-        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
@@ -46,6 +44,6 @@
         [Required]
         public string Address { get; set; }
 
-        public virtual ICollection<InsurancePolicy> InsurancePolicies { get; set; }
+        public virtual ICollection<Policy> InsurancePolicies { get; set; }
     }
 }

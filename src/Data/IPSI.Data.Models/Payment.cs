@@ -31,6 +31,6 @@
 
         public int InsurancePolicyId { get; set; }
 
-        public virtual InsurancePolicy InsurancePolicy { get; set; }
+        public virtual Policy InsurancePolicy { get; set; }
     }
 }

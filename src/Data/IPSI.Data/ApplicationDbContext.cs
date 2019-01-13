@@ -32,13 +32,15 @@
 
         public DbSet<CompanyInsurance> CompanyInsurances { get; set; }
 
-        public DbSet<InsurancePolicy> InsurancePolicies { get; set; }
+        public DbSet<Policy> Policies { get; set; }
 
         public DbSet<Payment> Payments { get; set; }
 
         public DbSet<InsuredProperty> InsuredProperties { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Damage> Damages { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

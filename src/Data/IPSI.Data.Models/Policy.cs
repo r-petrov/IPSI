@@ -6,13 +6,14 @@
 
     using IPSI.Data.Common.Attributes;
     using IPSI.Data.Common.Models;
+    using IPSI.Data.Models.Enums;
 
-    public class InsurancePolicy : BaseModel<int>, IValidatableObject
+    public class Policy : BaseModel<int>, IValidatableObject
     {
-        public InsurancePolicy()
+        public Policy()
         {
             this.Payments = new HashSet<Payment>();
-            this.InsuredProperties = new HashSet<InsuredProperty>();
+            this.Damages = new HashSet<Damage>();
         }
 
         [Required]
@@ -23,6 +24,8 @@
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
+
+        public PolicyStatuses Status { get; set; }
 
         [MinValue(1)]
         public int PaymentsCount { get; set; }
@@ -44,11 +47,15 @@
 
         public virtual ICollection<Payment> Payments { get; set; }
 
-        public virtual ICollection<InsuredProperty> InsuredProperties { get; set; }
+        public int InsuredPropertyId { get; set; }
+
+        public virtual InsuredProperty InsuredProperty { get; set; }
 
         public int CustomerId { get; set; }
 
         public virtual Customer Customer { get; set; }
+
+        public virtual ICollection<Damage> Damages { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

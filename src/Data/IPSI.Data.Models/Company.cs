@@ -5,7 +5,6 @@
 
     using IPSI.Data.Common.Models;
 
-    // TODO: Add property Logo
     public class Company : BaseModel<int>
     {
         public Company()
@@ -16,7 +15,9 @@
         [Required]
         public string Name { get; set; }
 
-        public string Broker { get; set; }
+        public string Logo { get; set; }
+
+        public string Notes { get; set; }
 
         public virtual ICollection<CompanyInsurance> Insurances { get; set; }
     }

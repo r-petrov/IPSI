@@ -4,14 +4,16 @@ using IPSI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IPSI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190113112317_AddPolicyStatusEnumAndChangeRelationBetweenPolicyAndInsuredProperty")]
+    partial class AddPolicyStatusEnumAndChangeRelationBetweenPolicyAndInsuredProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,35 +202,6 @@ namespace IPSI.Data.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("IPSI.Data.Models.Damage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<DateTime>("CreatedOn");
-
-                    b.Property<bool>("IsTotal");
-
-                    b.Property<DateTime?>("ModifiedOn");
-
-                    b.Property<string>("Note");
-
-                    b.Property<DateTime>("OccurenceDate");
-
-                    b.Property<int?>("PolicyId");
-
-                    b.Property<string>("Type");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PolicyId");
-
-                    b.ToTable("Damages");
-                });
-
             modelBuilder.Entity("IPSI.Data.Models.Insurance", b =>
                 {
                     b.Property<int>("Id")
@@ -267,6 +240,35 @@ namespace IPSI.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("InsuredProperties");
+                });
+
+            modelBuilder.Entity("IPSI.Data.Models.Loss", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<bool>("IsTotal");
+
+                    b.Property<DateTime?>("ModifiedOn");
+
+                    b.Property<string>("Note");
+
+                    b.Property<DateTime>("OccurenceDate");
+
+                    b.Property<int?>("PolicyId");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PolicyId");
+
+                    b.ToTable("Loss");
                 });
 
             modelBuilder.Entity("IPSI.Data.Models.Payment", b =>
@@ -347,7 +349,30 @@ namespace IPSI.Data.Migrations
 
                     b.HasIndex("InsuredPropertyId");
 
-                    b.ToTable("Policies");
+                    b.ToTable("InsurancePolicies");
+                });
+
+            modelBuilder.Entity("IPSI.Data.Models.PolicyInsuredProperty", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<int>("InsuredPropertyId");
+
+                    b.Property<DateTime?>("ModifiedOn");
+
+                    b.Property<int>("PolicyId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InsuredPropertyId");
+
+                    b.HasIndex("PolicyId");
+
+                    b.ToTable("PolicyInsuredProperty");
                 });
 
             modelBuilder.Entity("IPSI.Data.Models.Setting", b =>
@@ -474,7 +499,7 @@ namespace IPSI.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("IPSI.Data.Models.Damage", b =>
+            modelBuilder.Entity("IPSI.Data.Models.Loss", b =>
                 {
                     b.HasOne("IPSI.Data.Models.Policy")
                         .WithMany("Damages")
@@ -502,8 +527,21 @@ namespace IPSI.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("IPSI.Data.Models.InsuredProperty", "InsuredProperty")
+                        .WithMany()
+                        .HasForeignKey("InsuredPropertyId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("IPSI.Data.Models.PolicyInsuredProperty", b =>
+                {
+                    b.HasOne("IPSI.Data.Models.InsuredProperty", "InsuredProperty")
                         .WithMany("Policies")
                         .HasForeignKey("InsuredPropertyId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("IPSI.Data.Models.Policy", "Policy")
+                        .WithMany()
+                        .HasForeignKey("PolicyId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

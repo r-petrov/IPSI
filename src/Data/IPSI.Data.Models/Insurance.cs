@@ -10,7 +10,7 @@
         public Insurance()
         {
             this.Companies = new HashSet<CompanyInsurance>();
-            this.InsurancePolicies = new HashSet<InsurancePolicy>();
+            this.InsurancePolicies = new HashSet<Policy>();
         }
 
         [Required]
@@ -18,6 +18,6 @@
 
         public virtual ICollection<CompanyInsurance> Companies { get; set; }
 
-        public virtual ICollection<InsurancePolicy> InsurancePolicies { get; set; }
+        public virtual ICollection<Policy> InsurancePolicies { get; set; }
     }
 }
