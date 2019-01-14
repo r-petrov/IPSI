@@ -9,32 +9,41 @@
 <p>
     <a class="btn btn-group-sm btn-success" asp-area="Admin" asp-controller="Companies" asp-action="Create">
         <i class="fa fa-plus font-weight-bold" data-toggle="tooltip" title="@GlobalConstants.Create">
+            @GlobalConstants.Create Insurance Company
         </i>
     </a>
 </p>
-<table class="table table-bordered table-hover table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Broker</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var company in Model.Companies)
-        {
-        <tr>
-            <td>
-                @company.Name
-            </td>
-            <td>
-                @company.Broker
-            </td>
-            <td>
-                <a class="btn btn-info" asp-area="Admin" asp-controller="Companies" asp-action="Details">@GlobalConstants.Details</a> |
-                <a class="btn btn-warning" asp-area="Admin" asp-controller="Companies" asp-action="Edit">@GlobalConstants.Edit</a> |
-                <a class="btn btn-danger" asp-area="Admin" asp-controller="Companies" asp-action="Delete">@GlobalConstants.Delete</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-success table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Broker</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var company in Model.Companies)
+            {
+                <tr>
+                    <td>
+                        @company.Name @company.Logo
+                    </td>
+                    <td>
+                        @company.Broker
+                    </td>
+                    <td>
+                        <a class="btn btn-group-toggle" asp-area="Admin" asp-controller="Companies" asp-action="Details">
+                            <i class="fa fa-info-circle" data-toggle="tooltip" title="@GlobalConstants.Details"></i>
+                        </a>
+                        <a class="btn btn-group-toggle" asp-area="Admin" asp-controller="Companies" asp-action="Edit">
+                            <i class="fa fa-edit" data-toggle="tooltip" title="@GlobalConstants.Edit"></i>
+                        </a>
+                        <a class="btn btn-group-toggle" asp-area="Admin" asp-controller="Companies" asp-action="Delete">
+                            <i class="fa fa-trash" data-toggle="tooltip" title="@GlobalConstants.Delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
