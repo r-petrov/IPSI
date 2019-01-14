@@ -2,6 +2,8 @@
 {
     public static class GlobalConstants
     {
+        public const string IPSIConst = "IPSI";
+
         public const string AdministratorRoleName = "Administrator";
         public const string UserRoleName = "User";
 

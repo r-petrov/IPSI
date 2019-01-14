@@ -7,7 +7,10 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a class="btn btn-success" asp-area="Admin" asp-controller="Companies" asp-action="Create">@GlobalConstants.Create</a>
+    <a class="btn btn-group-sm btn-success" asp-area="Admin" asp-controller="Companies" asp-action="Create">
+        <i class="fa fa-plus font-weight-bold" data-toggle="tooltip" title="@GlobalConstants.Create">
+        </i>
+    </a>
 </p>
 <table class="table table-bordered table-hover table-striped">
     <thead>

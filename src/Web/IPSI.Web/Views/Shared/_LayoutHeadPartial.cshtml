@@ -1,0 +1,14 @@
+﻿<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>@this.ViewData["Title"] - @GlobalConstants.IPSIConst</title>
+
+<environment names="Development">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
+    @*<link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />*@
+    <link href="~/css/space-lab.css" rel="stylesheet" asp-append-version="true" />
+</environment>
+<environment names="Staging,Production">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+    @*<link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />*@
+    <link href="~/css/space-lab.min.css" rel="stylesheet" asp-append-version="true" />
+</environment>
